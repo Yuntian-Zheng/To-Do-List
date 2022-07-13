@@ -1,6 +1,7 @@
 "# To-Do-List" 
 User story
     As a user I want to:
+    
         -Sign up
         -Login
         -Loginout
@@ -9,10 +10,13 @@ User story
         -Delete to-do list
         -Complete to-do list
 User model:
+
     name: String
     Username: String
     Password: String
+    
 To-Do List model:
+
     activity: String
     desscription: String
     due-date: String
