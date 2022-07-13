@@ -17,11 +17,16 @@ User model:
     
 To-Do List model:
 
-    activity: String
-    desscription: String
-    due-date: String
+    name: String
     complete: Boolean
     creator: UserID
+Activity model:
+    
+    activity: String
+    description: String
+    due-date: String
+    ListId: To-do List Id
+    
  Strech Goal:
  
     Create a calender to show the due date
