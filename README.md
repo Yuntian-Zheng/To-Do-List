@@ -22,3 +22,7 @@ To-Do List model:
     due-date: String
     complete: Boolean
     creator: UserID
+ Strech Goal:
+ 
+    Create a calender to show the due date
+    Send autoamted email reminders
