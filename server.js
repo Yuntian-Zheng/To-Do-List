@@ -36,6 +36,6 @@ app.get('/', (req, res) => {
     res.redirect('/users/login')
 })
 const PORT = process.env.PORT
-app.listen(PORT, () => {
+app.listen(PORT || 3000, () => {
 	console.log(`app is listening on port: ${PORT}`)
 })
