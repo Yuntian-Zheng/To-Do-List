@@ -5,11 +5,6 @@ const { Schema, model } = mongoose
 
 const todoSchema = new Schema({
     name: String,
-    completed: {
-        type: Boolean,
-        default: false
-    },
-    due_date: String,
     owner: {
         type: Schema.Types.ObjectId,
         ref: "User"
