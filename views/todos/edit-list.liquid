@@ -1,0 +1,29 @@
+{% layout 'layout.liquid' %}
+{% block content %}
+<section class="vh-100" style="background-color: #eee;">
+    <div class="container py-5 h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col col-lg-9 col-xl-7">
+                <div class="card rounded-3">
+                    <div class="card-body p-4">
+                        <form action="/todos/{{listId}}/edit?_method=PUT" method="POST"
+                            class="row row-cols-lg-auto g-3 justify-content-center align-items-center mb-4 pb-2">
+                            <div class="col-12">
+                                <div class="form-outline">
+                                    <label class="form-label" for="todo">Rename List</label>
+                                    <input type="text" id="todo" class="form-control" name="todo"
+                                        placeholder={{todo.name}} />
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <button type="submit" class="btn btn-primary">Save</button>
+                                <a href="/todos" class="btn btn-danger">Cancel</a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

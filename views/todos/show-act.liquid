@@ -1,0 +1,70 @@
+{% layout 'layout.liquid' %}
+{% block content %}
+<section class="vh-100" style="background-color: #eee;">
+    <div class="container py-5 h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col col-lg-9 col-xl-7">
+                <div class="card rounded-3">
+                    <div class="card-body p-4">
+
+                        <h4 class="text-center my-3 pb-3">{{todo.name}}</h4>
+
+                        <form action="/todos/{{listId}}" method="POST"
+                            class="row row-cols-lg-auto g-3 justify-content-center align-items-center mb-4 pb-2">
+                            <div class="col-12">
+                                <div class="form-outline">
+                                    <input type="text" id="activity" class="form-control" name="activity" />
+                                    <label class="form-label" for="activity">Enter an activity here</label>
+                                </div>
+                            </div>
+
+                            <div class="col-12">
+                                <button type="submit" class="btn btn-primary">Create</button>
+                            </div>
+
+                        </form>
+                        <table class="table mb-4">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Todo item</th>
+                                    <th scope="col">Status</th>
+                                    <th scope="col">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for act in acts %}
+                                <tr>
+                                    <td>{{act.activity}}</td>
+                                    {% if act.completed %}
+                                    <td>Completed</td>
+                                    {% else %}
+                                    <td>In Progress</td>
+                                    {% endif%}
+                                    <td style="white-space: nowrap">
+                                        {% if act.completed == false %}
+                                        <form style="display:inline-block"
+                                            action="/todos/{{listId}}/{{act._id}}?_method=PUT" method="POST">
+                                            <button type="submit" class="btn btn-success ms-1">Finished</button>
+                                        </form>
+                                        {% endif %}
+                                        <form style="display:inline-block" action="/todos/{{listId}}/{{act._id}}/edit"
+                                            method="GET">
+                                            <button type="submit" class="btn btn-primary">Edit</button>
+                                        </form>
+                                        <form style="display:inline-block"
+                                            action="/todos/{{listId}}/{{act._id}}?_method=DELETE" method="POST">
+                                            <button type="submit" class="btn btn-danger">Delete</button>
+                                        </form>
+                                    </td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
